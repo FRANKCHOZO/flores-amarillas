@@ -11,12 +11,6 @@
 </head>
 <body>
 
-    <!-- Ruta corregida apuntando a la carpeta music -->
-    <audio id="myAudio" loop>
-        <source src="music/cancion.mp3" type="audio/mpeg">
-        Tu navegador no soporta el elemento de audio.
-    </audio>
-
     <!-- Pantalla de bienvenida -->
     <main class="welcome" id="welcomeScreen">
         <div class="flower">🌻</div>
@@ -42,9 +36,14 @@
                 <img src="images/foto3.jpg" alt="Recuerdo 3">
             </div>
 
-            <button id="musicButton" class="music-button">
-                🎵 Reproducir nuestra canción
-            </button>
+            <!-- Reproductor de audio con fuente directa -->
+            <div class="audio-container">
+                <p>🎵 Nuestra canción</p>
+                <audio id="myAudio" controls preload="auto">
+                    <source src="music/cancion.mp3" type="audio/mpeg">
+                    Tu navegador no soporta el reproductor de audio.
+                </audio>
+            </div>
         </section>
 
         <section class="section letter">
