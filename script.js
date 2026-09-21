@@ -6,27 +6,28 @@ document.addEventListener("DOMContentLoaded", function () {
     const petals = document.getElementById("petals");
     const finalMessage = document.getElementById("finalMessage");
 
-    // Al pulsar "Comenzar"
+    // Acción al presionar "Comenzar"
     if (startButton) {
         startButton.addEventListener("click", function () {
             welcomeScreen.style.display = "none";
             mainContent.classList.remove("hidden");
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
 
-    // Al pulsar "Descubrir sorpresa"
+    // Acción al presionar "Descubrir sorpresa"
     if (surpriseButton) {
         surpriseButton.addEventListener("click", function () {
-            // Generar 50 girasoles
+            // Lluvia de girasoles
             for (let i = 0; i < 50; i++) {
                 createPetal();
             }
 
-            // Mostrar el mensaje final a los 3.5 segundos y desplazarse hacia él
+            // Mostrar recuadro final a los 3 segundos
             setTimeout(function () {
                 finalMessage.classList.remove("hidden");
                 finalMessage.scrollIntoView({ behavior: 'smooth' });
-            }, 3500);
+            }, 3000);
         });
     }
 
@@ -35,17 +36,13 @@ document.addEventListener("DOMContentLoaded", function () {
         petal.className = "petal";
         petal.textContent = "🌻";
         
-        // Posición horizontal aleatoria
         petal.style.left = Math.random() * 100 + "vw";
-        
-        // Duración de la caída aleatoria entre 3 y 7 segundos
-        petal.style.animationDuration = (3 + Math.random() * 4) + "s";
+        petal.style.animationDuration = (2.5 + Math.random() * 3.5) + "s";
 
         petals.appendChild(petal);
 
-        // Remover el elemento del DOM al terminar la animación
         setTimeout(function () {
             petal.remove();
-        }, 7000);
+        }, 6500);
     }
 });
