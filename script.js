@@ -5,25 +5,48 @@ document.addEventListener("DOMContentLoaded", function () {
     const surpriseButton = document.getElementById("surpriseButton");
     const petals = document.getElementById("petals");
     const finalMessage = document.getElementById("finalMessage");
+    
+    const audio = document.getElementById("myAudio");
+    const musicButton = document.getElementById("musicButton");
 
-    // Acción al presionar "Comenzar"
+    // Al hacer clic en "Comenzar", se despliega el contenido y empieza la música
     if (startButton) {
         startButton.addEventListener("click", function () {
             welcomeScreen.style.display = "none";
             mainContent.classList.remove("hidden");
             window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Iniciar reproducción de audio automáticamente al presionar Comenzar
+            if (audio) {
+                audio.play().then(() => {
+                    if (musicButton) musicButton.textContent = "⏸️ Pausar nuestra canción";
+                }).catch(err => {
+                    console.log("El navegador bloqueó la autoreproducción:", err);
+                });
+            }
         });
     }
 
-    // Acción al presionar "Descubrir sorpresa"
+    // Botón para pausar o reproducir la música manualmente
+    if (musicButton && audio) {
+        musicButton.addEventListener("click", function () {
+            if (audio.paused) {
+                audio.play();
+                musicButton.textContent = "⏸️ Pausar nuestra canción";
+            } else {
+                audio.pause();
+                musicButton.textContent = "🎵 Reproducir nuestra canción";
+            }
+        });
+    }
+
+    // Lluvia de girasoles al presionar "Descubrir sorpresa"
     if (surpriseButton) {
         surpriseButton.addEventListener("click", function () {
-            // Lluvia de girasoles
             for (let i = 0; i < 50; i++) {
                 createPetal();
             }
 
-            // Mostrar recuadro final a los 3 segundos
             setTimeout(function () {
                 finalMessage.classList.remove("hidden");
                 finalMessage.scrollIntoView({ behavior: 'smooth' });
