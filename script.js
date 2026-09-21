@@ -5,9 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const surpriseButton = document.getElementById("surpriseButton");
     const petals = document.getElementById("petals");
     const finalMessage = document.getElementById("finalMessage");
-    
     const audio = document.getElementById("myAudio");
-    const musicButton = document.getElementById("musicButton");
 
     // Al hacer clic en "Comenzar"
     if (startButton) {
@@ -16,27 +14,11 @@ document.addEventListener("DOMContentLoaded", function () {
             mainContent.classList.remove("hidden");
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
-            // Intentar reproducir audio automáticamente tras la interacción
+            // Iniciar reproducción al interactuar con el botón Comenzar
             if (audio) {
-                audio.play().then(() => {
-                    if (musicButton) musicButton.textContent = "⏸️ Pausar nuestra canción";
-                }).catch(err => {
-                    console.log("Haz clic en el botón de música para reproducir:", err);
+                audio.play().catch(function (error) {
+                    console.log("El navegador requiere usar los controles del reproductor:", error);
                 });
-            }
-        });
-    }
-
-    // Botón manual de música
-    if (musicButton && audio) {
-        musicButton.addEventListener("click", function () {
-            if (audio.paused) {
-                audio.play().then(() => {
-                    musicButton.textContent = "⏸️ Pausar nuestra canción";
-                }).catch(e => console.log("Error al reproducir:", e));
-            } else {
-                audio.pause();
-                musicButton.textContent = "🎵 Reproducir nuestra canción";
             }
         });
     }
