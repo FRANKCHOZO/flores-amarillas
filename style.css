@@ -3,275 +3,157 @@
 }
 
 body {
-
     margin: 0;
-
     min-height: 100vh;
-
-    background:
-        linear-gradient(
-            135deg,
-            #fff8d6,
-            #ffe89a
-        );
-
-    font-family:
-        Arial,
-        sans-serif;
-
+    background: linear-gradient(135deg, #fff8d6, #ffe89a);
+    font-family: Arial, sans-serif;
     color: #3d3000;
-
 }
 
 .welcome {
-
     min-height: 100vh;
-
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
-
     align-items: center;
-
     text-align: center;
-
     padding: 30px;
-
 }
 
 .flower {
-
     font-size: 100px;
-
-    animation:
-        floating 3s ease-in-out infinite;
-
+    animation: floating 3s ease-in-out infinite;
 }
 
 h1 {
-
     font-size: 48px;
-
     margin: 20px 0 10px;
-
 }
 
 p {
-
-    font-size: 22px;
-
+    font-size: 20px;
 }
 
 button {
-
     margin-top: 20px;
-
     padding: 15px 35px;
-
     border: none;
-
     border-radius: 30px;
-
     background: #f2c500;
-
     color: white;
-
     font-size: 18px;
-
+    font-weight: bold;
     cursor: pointer;
-
-    transition:
-        transform 0.2s;
-
+    transition: transform 0.2s;
+    box-shadow: 0 4px 15px rgba(242, 197, 0, 0.4);
 }
 
 button:hover {
-
     transform: scale(1.08);
-
 }
 
 @keyframes floating {
-
-    0% {
-
-        transform:
-            translateY(0);
-
-    }
-
-    50% {
-
-        transform:
-            translateY(-15px);
-
-    }
-
-    100% {
-
-        transform:
-            translateY(0);
-
-    }
-
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
 }
+
+/* Clase para ocultar elementos */
 .hidden {
-
-    display: none;
-
+    display: none !important;
 }
 
 .section {
-
-    min-height: 100vh;
-
+    min-height: 80vh;
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
-
     align-items: center;
-
     text-align: center;
-
-    padding: 40px;
-
+    padding: 40px 20px;
 }
+
 .gallery {
-
     display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-
     max-width: 900px;
-
     width: 100%;
-
+    margin-bottom: 20px;
 }
 
 .gallery img {
-
     width: 100%;
-
     height: 300px;
-
     object-fit: cover;
-
     border-radius: 20px;
-
-    box-shadow:
-        0 10px 30px
-        rgba(0, 0, 0, 0.15);
-
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-@media (max-width: 700px) {
-
-    h1 {
-
-        font-size: 36px;
-
-    }
-
-    .gallery {
-
-        grid-template-columns: 1fr;
-
-    }
-
-    .gallery img {
-
-        height: 350px;
-
-    }
-
-}
 .music-button {
-
     display: inline-block;
-
     margin-top: 20px;
-
     padding: 15px 30px;
-
     border-radius: 30px;
-
-    background: #f2c500;
-
+    background: #1DB954;
     color: white;
-
     text-decoration: none;
-
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(29, 185, 84, 0.4);
 }
 
 .letter-box {
-
     max-width: 700px;
-
     background: white;
-
     padding: 40px;
-
     border-radius: 25px;
-
-    box-shadow:
-        0 15px 40px
-        rgba(0, 0, 0, 0.15);
-
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
     font-size: 20px;
-
     line-height: 1.8;
-
+    margin-bottom: 30px;
 }
+
+.final-message {
+    background: #ffffff;
+    border: 3px solid #f2c500;
+    padding: 30px;
+    border-radius: 20px;
+    margin: 40px auto;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Estilos de la lluvia de girasoles */
 .petals {
-
     position: fixed;
-
     inset: 0;
-
     pointer-events: none;
-
     overflow: hidden;
-
-    z-index: 999;
-
+    z-index: 9999;
 }
 
 .petal {
-
     position: absolute;
-
     top: -50px;
-
     font-size: 30px;
-
-    animation:
-        fall linear forwards;
-
+    user-select: none;
+    animation: fall linear forwards;
 }
 
 @keyframes fall {
-
-    from {
-
-        transform:
-            translateY(0)
-            rotate(0deg);
-
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
     }
-
-    to {
-
-        transform:
-            translateY(110vh)
-            rotate(360deg);
-
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
     }
+}
 
+@media (max-width: 700px) {
+    h1 { font-size: 36px; }
+    .gallery { grid-template-columns: 1fr; }
+    .gallery img { height: 350px; }
 }
