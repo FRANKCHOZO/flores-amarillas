@@ -1,160 +1,69 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para ti 🌻</title>
-
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
 
-    <main class="welcome">
-        <section
-            id="story"
-            class="section hidden"
-        >
-            <h2>
-                Nuestra historia ❤️
-            </h2>
-            
-            <p>
-                Y pensar que fue gracias a ese mensaje que justo ahora tengo a la persona mas importante en mi vida....:3 
-            </p>
-
-        </section>
-       <section class="section">
-
-        <h2>
-            Recuerdos de los muchos mas que faltan 📸
-        </h2>
-
-        <div class="gallery">
-
-            <img
-                src="images/foto1.jpg"
-                alt="Que monos jejeje"
-            >
-
-            <img
-                src="images/foto2.jpg"
-                alt="Bien guapos somos amor"
-            >
-
-            <img
-                src="images/foto3.jpg"
-                alt="Apoco que no salimos lindos amorcito?"
-            >
-
-        </div>
-        <a
-            href="https://open.spotify.com/intl-es/track/4Biq4WN3qlt8U3pFQQCEh2?si=44f044b738ea4d22"
-            target="_blank"
-            class="music-button"
-        >
-            🎵 Escuchar nuestra canción
-        </a>
-    </section> 
-    
-        <div class="flower">
-            🌻
-        </div>
-
-        <h1>
-            Hola, amor ❤️
-        </h1>
-
-        <p>
-            Tengo algo preparado para ti, jejeje :3.
-        </p>
-
-        <button id="startButton">
-            Comenzar
-        </button>
-    <section class="section letter">
-
-        <h2>
-            Y ahora sí...
-        </h2>
-
-        <div class="letter-box">
-
-            <p>
-                Amor:
-            </p>
-
-            <p>
-                Quería hacer algo diferente
-                para ti.
-            </p>
-
-            <p>
-                Se que quizas no pueda darte mucho ahora, pero se que habran mas momentos
-                en los que simplemente seremos mucho mas felices mi negra.
-            </p>
-
-            <p>
-                Pero hoy tenía una excusa perfecta
-                para regalarte un poquito de color.
-            </p>
-
-            <p>
-                Gracias por todos nuestros momentos,
-                por nuestras risas y por todo lo que
-                todavía nos queda por vivir.
-            </p>
-
-            <p>
-                Te amo muchísimo. ❤️
-            </p>
-
-        </div>
-
-    </section>
-
-    <button id="surpriseButton">
-
-        🌻 Descubrir sorpresa
-
-        </button>  
-        <div
-        id="petals"
-        class="petals"
-        ></div> 
-        <div
-        id="finalMessage"
-        class="final-message hidden"
-    >
-
-        <h2>
-            Deployment successful ❤️
-        </h2>
-
-        <p>
-            Flores entregadas: ✓
-        </p>
-
-        <p>
-            Sonrisas provocadas: ✓
-        </p>
-
-        <p>
-            Amor: ∞
-        </p>
-
-    </div>
+    <!-- PANTALLA 1: Bienvenida -->
+    <main class="welcome" id="welcomeScreen">
+        <div class="flower">🌻</div>
+        <h1>Hola, amor ❤️</h1>
+        <p>Tengo algo preparado para ti, jejeje :3.</p>
+        <button id="startButton">Comenzar</button>
     </main>
 
+    <!-- PANTALLA 2: Contenido completo (Oculto al inicio) -->
+    <div id="mainContent" class="hidden">
+        
+        <section id="story" class="section">
+            <h2>Nuestra historia ❤️</h2>
+            <p>Y pensar que fue gracias a ese mensaje que justo ahora tengo a la persona más importante en mi vida... :3</p>
+        </section>
+
+        <section class="section">
+            <h2>Recuerdos de los muchos más que faltan 📸</h2>
+            
+            <div class="gallery">
+                <img src="images/foto1.jpg" alt="Que monos jejeje">
+                <img src="images/foto2.jpg" alt="Bien guapos somos amor">
+                <img src="images/foto3.jpg" alt="Apoco que no salimos lindos amorcito?">
+            </div>
+
+            <a href="https://open.spotify.com/intl-es/track/4Biq4WN3qlt8U3pFQQCEh2?si=44f044b738ea4d22" target="_blank" class="music-button">
+                🎵 Escuchar nuestra canción
+            </a>
+        </section>
+
+        <section class="section letter">
+            <h2>Y ahora sí...</h2>
+            <div class="letter-box">
+                <p>Amor:</p>
+                <p>Quería hacer algo diferente para ti.</p>
+                <p>Sé que quizás no pueda darte mucho ahora, pero sé que habrá más momentos en los que simplemente seremos mucho más felices, mi negra.</p>
+                <p>Pero hoy tenía una excusa perfecta para regalarte un poquito de color.</p>
+                <p>Gracias por todos nuestros momentos, por nuestras risas y por todo lo que todavía nos queda por vivir.</p>
+                <p>Te amo muchísimo. ❤️</p>
+            </div>
+
+            <button id="surpriseButton">🌻 Descubrir sorpresa</button>
+        </section>
+
+        <div id="finalMessage" class="final-message hidden">
+            <h2>Deployment successful ❤️</h2>
+            <p>Flores entregadas: ✓</p>
+            <p>Sonrisas provocadas: ✓</p>
+            <p>Amor: ∞</p>
+        </div>
+
+    </div>
+
+    <!-- Contenedor fijo para la lluvia de girasoles -->
+    <div id="petals" class="petals"></div>
+
     <script src="script.js"></script>
-
 </body>
-
 </html>
