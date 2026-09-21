@@ -1,87 +1,51 @@
-const startButton =
-    document.getElementById("startButton");
+document.addEventListener("DOMContentLoaded", function () {
+    const startButton = document.getElementById("startButton");
+    const welcomeScreen = document.getElementById("welcomeScreen");
+    const mainContent = document.getElementById("mainContent");
+    const surpriseButton = document.getElementById("surpriseButton");
+    const petals = document.getElementById("petals");
+    const finalMessage = document.getElementById("finalMessage");
 
-const welcome =
-    document.querySelector(".welcome");
-
-const story =
-    document.getElementById("story");
-
-
-startButton.addEventListener("click", function () {
-
-    welcome.style.display = "none";
-
-    story.classList.remove("hidden");
-
-});
-
-const surpriseButton =
-    document.getElementById(
-        "surpriseButton"
-    );
-
-const petals =
-    document.getElementById("petals");
-
-
-surpriseButton.addEventListener(
-    "click",
-    function () {
-
-        for (
-            let i = 0;
-            i < 50;
-            i++
-        ) {
-
-            createPetal();
-
-        }
-
+    // Al pulsar "Comenzar"
+    if (startButton) {
+        startButton.addEventListener("click", function () {
+            welcomeScreen.style.display = "none";
+            mainContent.classList.remove("hidden");
+        });
     }
-);
 
+    // Al pulsar "Descubrir sorpresa"
+    if (surpriseButton) {
+        surpriseButton.addEventListener("click", function () {
+            // Generar 50 girasoles
+            for (let i = 0; i < 50; i++) {
+                createPetal();
+            }
 
-function createPetal() {
+            // Mostrar el mensaje final a los 3.5 segundos y desplazarse hacia él
+            setTimeout(function () {
+                finalMessage.classList.remove("hidden");
+                finalMessage.scrollIntoView({ behavior: 'smooth' });
+            }, 3500);
+        });
+    }
 
-    const petal =
-        document.createElement("div");
+    function createPetal() {
+        const petal = document.createElement("div");
+        petal.className = "petal";
+        petal.textContent = "🌻";
+        
+        // Posición horizontal aleatoria
+        petal.style.left = Math.random() * 100 + "vw";
+        
+        // Duración de la caída aleatoria entre 3 y 7 segundos
+        petal.style.animationDuration = (3 + Math.random() * 4) + "s";
 
-    petal.className = "petal";
+        petals.appendChild(petal);
 
-    petal.textContent = "🌻";
-
-    petal.style.left =
-        Math.random() * 100 + "vw";
-
-    petal.style.animationDuration =
-        (3 + Math.random() * 4) + "s";
-
-    petals.appendChild(petal);
-
-    setTimeout(
-        function () {
-
+        // Remover el elemento del DOM al terminar la animación
+        setTimeout(function () {
             petal.remove();
-
-        },
-        7000
-    );
-
-}
-setTimeout(
-    function () {
-
-        const finalMessage =
-            document.getElementById(
-                "finalMessage"
-            );
-
-        finalMessage.classList.remove(
-            "hidden"
-        );
-
-    },
-    4000
-);
+        }, 7000);
+    }
+});
