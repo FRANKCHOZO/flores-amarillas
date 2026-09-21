@@ -171,3 +171,17 @@ audio {
     .gallery img { height: 320px; }
     .letter-box { padding: 25px; font-size: 16px; }
 }
+.spotify-container {
+    margin-top: 25px;
+    width: 100%;
+    max-width: 420px;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.spotify-container p {
+    margin: 0 0 10px 0;
+    font-weight: 600;
+}
