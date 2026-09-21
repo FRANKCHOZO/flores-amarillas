@@ -1,29 +1,87 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const startButton = document.getElementById("startButton");
+const startButton =
+    document.getElementById("startButton");
 
-    if (startButton) {
-        startButton.addEventListener("click", function () {
-            // Generar la lluvia de girasoles
-            for (let i = 0; i < 40; i++) {
-                createFlower();
-            }
+const welcome =
+    document.querySelector(".welcome");
 
-            // Cambiar mensaje al dar clic
-            alert("¡Te quiero muchísimo! ❤️ 🌻");
-        });
-    }
+const story =
+    document.getElementById("story");
+
+
+startButton.addEventListener("click", function () {
+
+    welcome.style.display = "none";
+
+    story.classList.remove("hidden");
+
 });
 
-function createFlower() {
-    const flower = document.createElement("div");
-    flower.classList.add("petal");
-    flower.textContent = "🌻";
-    flower.style.left = Math.random() * 100 + "vw";
-    flower.style.animationDuration = (2 + Math.random() * 3) + "s";
-    
-    document.body.appendChild(flower);
+const surpriseButton =
+    document.getElementById(
+        "surpriseButton"
+    );
 
-    setTimeout(() => {
-        flower.remove();
-    }, 5000);
+const petals =
+    document.getElementById("petals");
+
+
+surpriseButton.addEventListener(
+    "click",
+    function () {
+
+        for (
+            let i = 0;
+            i < 50;
+            i++
+        ) {
+
+            createPetal();
+
+        }
+
+    }
+);
+
+
+function createPetal() {
+
+    const petal =
+        document.createElement("div");
+
+    petal.className = "petal";
+
+    petal.textContent = "🌻";
+
+    petal.style.left =
+        Math.random() * 100 + "vw";
+
+    petal.style.animationDuration =
+        (3 + Math.random() * 4) + "s";
+
+    petals.appendChild(petal);
+
+    setTimeout(
+        function () {
+
+            petal.remove();
+
+        },
+        7000
+    );
+
 }
+setTimeout(
+    function () {
+
+        const finalMessage =
+            document.getElementById(
+                "finalMessage"
+            );
+
+        finalMessage.classList.remove(
+            "hidden"
+        );
+
+    },
+    4000
+);
