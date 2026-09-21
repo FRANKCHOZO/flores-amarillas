@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para ti 🌻</title>
-    <!-- Tipografía Google Fonts elegante y legible -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- Elemento de audio invisible -->
+    <audio id="myAudio" loop>
+        <source src="cancion.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
 
     <!-- Pantalla de bienvenida -->
     <main class="welcome" id="welcomeScreen">
@@ -37,9 +42,10 @@
                 <img src="images/foto3.jpg" alt="Recuerdo 3">
             </div>
 
-            <a href="https://open.spotify.com/intl-es/track/4Biq4WN3qlt8U3pFQQCEh2?si=44f044b738ea4d22" target="_blank" class="music-button">
-                🎵 Escuchar nuestra canción
-            </a>
+            <!-- Botón interactivo para reproducir/pausar la música -->
+            <button id="musicButton" class="music-button">
+                🎵 Reproducir nuestra canción
+            </button>
         </section>
 
         <section class="section letter">
